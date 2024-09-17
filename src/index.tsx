@@ -1,22 +1,27 @@
-import { FoundationThemeProvider } from "@transcarent/foundation";
-import { GreetingCard } from "./components/HelloWorld";
+import { Route, Router } from "wouter";
+import { Text } from "@transcarent/foundation";
+import { PageA } from "./components/PageA";
+import { PageB } from "./components/PageB";
+import { NavigationButtons } from "./components/NavigationButtons";
+import { ExternalLinkContext } from "./components/ExternalLink";
 
-function DevThemeProvider({ children }: { children: React.ReactNode }) {
-  if (import.meta.env.DEV) {
-    return <FoundationThemeProvider>{children}</FoundationThemeProvider>;
-  }
-
-  return children;
-}
-
-export function TestLib({ name }: { name: string }) {
+export default function TestLib({
+  basePath,
+  ExternalLink,
+}: {
+  basePath: string;
+  ExternalLink: React.ComponentType;
+}) {
   return (
-    <DevThemeProvider>
-      <GreetingCard name={name} />;
-    </DevThemeProvider>
+    <ExternalLinkContext.Provider value={ExternalLink}>
+      <Router base={basePath}>
+        <Route path="/page-a" component={PageA} />
+        <Route path="/page-b" component={PageB} />
+        <Route path="/">
+          <Text>Default route</Text>
+        </Route>
+        <NavigationButtons />
+      </Router>
+    </ExternalLinkContext.Provider>
   );
-}
-
-if (import.meta.env.DEV && window) {
-  window["TestLib"] = TestLib;
 }

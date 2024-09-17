@@ -1,11 +1,10 @@
 {
   "name": "@transcarent/standalone-library-test",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "main": "./dist/test-lib.umd.js",
   "files": [
-    "./dist"
+    "/dist"
   ],
   "module": "./dist/test-lib.js",
   "exports": {
@@ -15,7 +14,7 @@
     }
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite build -w",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -23,7 +22,8 @@
   "dependencies": {
     "@transcarent/foundation": "^3.0.394",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "wouter": "^3.3.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
