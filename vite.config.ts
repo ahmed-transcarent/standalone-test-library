@@ -23,6 +23,9 @@ export default defineConfig({
       closeBundle: async () => {
         await pushToYalcInstallations();
       },
+      apply: (_config, { mode }) => {
+        return mode === "development";
+      },
     },
   ],
 });
