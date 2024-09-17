@@ -15,7 +15,7 @@ npm install -g yalc
 3. In the consuming app (web-app) add the published app via yalc: `yalc add @transcarent/standalone-library-test`
 4. Run this locally and run web-app locally: `npm run dev` (the same command for both)
 5. Make changes in this app and see them updated live in web app.
-6. Yalc modifies the package.json and package-lock.json files in the consuming app. So when you are done linking and developing locally, you'll want to remove the package.json changes. You can do this by removing the yalc installation in the consuming app (web-app): `yalc remove @transcarent/standalone-library-test
+6. Yalc modifies the package.json and package-lock.json files in the consuming app. So when you are done linking and developing locally, you'll want to remove the package.json changes. You can do this by removing the yalc installation in the consuming app (web-app): `yalc remove @transcarent/standalone-library-test`
 
 Whenever you make changes in this app, those changes will then be rebuilt and pushed to all of the yalc installations. Combined with the changes in webapp in the following pr: https://github.com/transcarent/web-app/pull/8184 you'll get a smooth development experience with fast refresh for react.
 
